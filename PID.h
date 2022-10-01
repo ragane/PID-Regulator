@@ -1,14 +1,19 @@
 #ifndef _PID_h
 #define _PID_h
 
+#if (ARDUINO >= 100)
+    #include "Arduino.h"
+#else
+    #inlude "WProgram.h"
+#endif
 
 class PID
 {
     private:
         // Proportional Parameter
-        float KP
+        float KP;
         // Integrat Parameter
-        float KI
+        float KI;
         // Derivative Parameter
         float KD;
         // Integral error
@@ -24,7 +29,7 @@ class PID
         // Constructors and deconstructor
         PID();
         PID(float Kp, float Ki, float Kd);
-        ~PID();
+        
         
         // Change PID values
         void tune_PID(float Kp, float Ki, float Kd);
